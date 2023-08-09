@@ -11,6 +11,7 @@ RUN go build \
 FROM scratch
 LABEL maintainer="dev@jpillora.com"
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+ADD . /app
 WORKDIR /app
 COPY --from=build /tmp/bin /app/bin
 ENTRYPOINT ["/app/bin"]
