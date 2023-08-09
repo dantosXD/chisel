@@ -14,5 +14,4 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 ADD . /app
 WORKDIR /app
 COPY --from=build /tmp/bin /app/bin
-ENTRYPOINT ["/app/bin"]
-CMD ["chisel", "server"]
+ENTRYPOINT ["/app/bin", "chisel server"]
