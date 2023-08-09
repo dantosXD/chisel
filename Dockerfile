@@ -8,7 +8,7 @@ RUN go build \
     -ldflags "-X github.com/jpillora/chisel/share.BuildVersion=$(git describe --abbrev=0 --tags)" \
     -o /tmp/bin
 # run stage
-FROM scratch
+FROM golang:alpine
 LABEL maintainer="dev@jpillora.com"
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 ADD . /app
