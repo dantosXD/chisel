@@ -14,4 +14,4 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 ADD . /app
 WORKDIR /app
 COPY --from=build /tmp/bin /app/bin
-ENTRYPOINT ["/app/bin", "client http://0.0.0.0:443"]
+ENTRYPOINT ["/app/bin", "client http://0.0.0.0 443"]
